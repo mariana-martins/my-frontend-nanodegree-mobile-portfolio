@@ -18,9 +18,6 @@
   "homepage": "https://github.com/mariana-martins/frontend-nanodegree-mobile-portfolio#readme",
   "devDependencies": {
     "gulp-plumber": "*",
-    "gulp-rename": "*",
-    "gulp-csscomb": "*",
-    "gulp-merge-media-queries": "*",
     "gulp-clean-css": "*",
     "gulp-uglify": "*",
     "gulp-minify-html": "*",

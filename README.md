@@ -11,10 +11,18 @@ To get started, check out the repository and inspect the code.
 Some useful tips to help you get started:
 
 1. Check out the repository
+1. To generate minified site, install gulp and minify project, using the following commands
+
+  ```bash
+  $> npm install gulp-cli -g
+  $> npm install
+  $> gulp minify
+  ```
+
 1. To inspect the site on your phone, you can run a local server
 
   ```bash
-  $> cd /path/to/your-project-folder
+  $> cd /path/to/your-project-folder/dist
   $> python -m SimpleHTTPServer 8080
   ```
 
@@ -53,3 +61,6 @@ The portfolio was built on Twitter's <a href="http://getbootstrap.com/">Bootstra
 
 * <a href="http://getbootstrap.com/css/">Bootstrap's CSS Classes</a>
 * <a href="http://getbootstrap.com/components/">Bootstrap's Components</a>
+
+
+
