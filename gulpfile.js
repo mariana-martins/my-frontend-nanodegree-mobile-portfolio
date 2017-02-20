@@ -58,7 +58,7 @@ gulp.task('minify-images', function() {
                 this.emit('end');
             }
         }))
-        .pipe(image())
+        //.pipe(image())
         .pipe(gulp.dest('dist/images'));
 });
 
