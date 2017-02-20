@@ -4,8 +4,7 @@ var plumber = require('gulp-plumber');
 var cleanCss = require('gulp-clean-css');
 var uglify = require('gulp-uglify');
 var minifyHtml = require('gulp-minify-html');
-var imageMin = require('gulp-imagemin');
-var cache = require('gulp-cache');
+var image = require('gulp-image');
 
 gulp.task('default', function() {
     browserSync.init({
@@ -47,9 +46,6 @@ gulp.task('minify-css', function() {
             }
         }))
         .pipe(gulp.dest('dist/styles'))
-        .pipe(rename({
-            suffix: '.min'
-        }))
         .pipe(cleanCss())
         .pipe(gulp.dest('dist/styles'));
 });
@@ -62,7 +58,7 @@ gulp.task('minify-images', function() {
                 this.emit('end');
             }
         }))
-        .pipe(cache(imageMin()))
+        .pipe(image())
         .pipe(gulp.dest('dist/images'));
 });
 

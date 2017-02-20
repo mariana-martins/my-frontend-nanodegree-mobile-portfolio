@@ -17,13 +17,12 @@
   },
   "homepage": "https://github.com/mariana-martins/frontend-nanodegree-mobile-portfolio#readme",
   "devDependencies": {
-    "gulp-plumber": "*",
-    "gulp-clean-css": "*",
-    "gulp-uglify": "*",
-    "gulp-minify-html": "*",
-    "gulp-imagemin": "*",
-    "gulp-cache": "*",
     "browser-sync": "*",
-    "gulp": "^3.9.1"
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "*",
+    "gulp-image": "^2.7.5",
+    "gulp-minify-html": "*",
+    "gulp-plumber": "*",
+    "gulp-uglify": "*"
   }
 }
