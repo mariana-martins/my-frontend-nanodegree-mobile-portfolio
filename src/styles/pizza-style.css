@@ -1,51 +1,28 @@
-{
+/*{
   outline: 1px solid red !important;
-}
-* {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -box-sizing: border-box;
-}
+}*/
+* { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; -box-sizing: border-box; }
 
-body {
-  font-family: "Trebuchet MS", Helvetica, sans-serif;
-  background: black;
-}
+body { font-family: "Trebuchet MS", Helvetica, sans-serif; background: black; }
 
-input {
-  background: grey;
-  font-size: 18px;
-}
+input { background: grey; font-size: 18px; }
 
-form {
-  display: inline-block;
-}
+form { display: inline-block; }
 
-.centered {
-  text-align: center;
-}
+.centered { text-align: center; }
 
-#pizzaSize {
-  font-weight: 800;
-}
+#pizzaSize { font-weight: 800; }
 
-.mover {
-  position: fixed;
-  width: 256px;
-  z-index: -1;
-}
+.mover { position: fixed; width: 256px; z-index: -1; }
 
-.randomPizzaContainer {
-  float: left;
-  display: flex;
-}
+.randomPizzaContainer { float: left; display: flex; width:33.33%; height: 325px;}
 
-.randomPizzaContainer:after {
-  content: "";
-  display: table;
-  clear:both;
-}
+.randomPizzaContainer:after { content: ""; display: table; clear:both; }
 
- .container {
-  background-color: rgba(240, 60, 60, 0.8);
-}
+.randomPizzaContainer-img { width:35% }
+
+.randomPizzaType { width:65% }
+
+.container { background-color: #f03c3c; opacity: 0.8;}
+
+.title-locations, .title-menu { text-align: center; }
