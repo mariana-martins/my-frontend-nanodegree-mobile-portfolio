@@ -1,3 +1,9 @@
+/* Smartphones (portrait) */
+@media only screen and (max-width: 480px) {
+  body { font-size: 12px;}
+  header p { padding-left: 4.5em;}
+}
+
 html {
   font-size: 100%;
   overflow-y: scroll;
@@ -33,7 +39,7 @@ header p span { font-size: 0.8em; font-weight: normal;}
 
 .content { padding: 1em 1em; }
 .content li { list-style-type: none; font-size: 1.1em;}
-.img-project { float:left; padding-right: 1em; }
+.img-project { float:left; padding-right: 1em; width: 100px; }
 .desc-project { font-size: 0.9em; font-style: italic; }
 
 footer {
