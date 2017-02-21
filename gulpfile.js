@@ -1,10 +1,10 @@
 var gulp = require('gulp');
 var browserSync = require('browser-sync').create();
 var plumber = require('gulp-plumber');
-var cleanCss = require('gulp-clean-css');
 var uglify = require('gulp-uglify');
 var minifyHtml = require('gulp-minify-html');
-var image = require('gulp-image');
+var imagemin = require('gulp-imagemin');
+var inlineCss = require('gulp-inline-css');
 
 gulp.task('default', function() {
     browserSync.init({
@@ -33,21 +33,9 @@ gulp.task('minify-html', function() {
                 this.emit('end');
             }
         }))
+        .pipe(inlineCss())
         .pipe(minifyHtml())
         .pipe(gulp.dest('dist'));
-});
-
-gulp.task('minify-css', function() {
-    gulp.src(['src/styles/**/*.css'])
-        .pipe(plumber({
-            handleError: function (err) {
-                console.log(err);
-                this.emit('end');
-            }
-        }))
-        .pipe(gulp.dest('dist/styles'))
-        .pipe(cleanCss())
-        .pipe(gulp.dest('dist/styles'));
 });
 
 gulp.task('minify-images', function() {
@@ -58,8 +46,14 @@ gulp.task('minify-images', function() {
                 this.emit('end');
             }
         }))
-        //.pipe(image())
+        .pipe(imagemin())
         .pipe(gulp.dest('dist/images'));
 });
 
-gulp.task('minify', ['minify-js', 'minify-html', 'minify-css', 'minify-images']);
+gulp.task('uncompress', function () {
+    return gulp.src('./compressed/*.gz')
+        .pipe(gunzip())
+        .pipe(gulp.dest('./uncompressed'))
+});
+
+gulp.task('minify', ['minify-js', 'minify-html', 'minify-images']);

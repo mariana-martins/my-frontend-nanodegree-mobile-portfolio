@@ -19,10 +19,13 @@
   "devDependencies": {
     "browser-sync": "*",
     "gulp": "^3.9.1",
-    "gulp-clean-css": "*",
-    "gulp-image": "^2.7.5",
+    "gulp-imagemin": "^3.1.1",
+    "gulp-inline-css": "^3.1.0",
     "gulp-minify-html": "*",
     "gulp-plumber": "*",
-    "gulp-uglify": "*"
+    "gulp-uglify": "*",
+    "imagemin": "^5.2.2",
+    "imagemin-jpegtran": "^5.0.2",
+    "imagemin-optipng": "^5.2.1"
   }
 }
