@@ -89,7 +89,7 @@ gulp.task('minify-pizza-js', function () {
 });
 
 gulp.task('minify-pizza-images', function() {
-    gulp.src(['src/images/views/*'])
+    gulp.src(['src/views/images/*'])
         .pipe(plumber({
             handleError: function (err) {
                 console.log(err);
