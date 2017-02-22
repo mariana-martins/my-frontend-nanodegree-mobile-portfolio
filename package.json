@@ -19,13 +19,18 @@
   "devDependencies": {
     "browser-sync": "*",
     "gulp": "^3.9.1",
+    "gulp-clean-css": "^3.0.3",
     "gulp-imagemin": "^3.1.1",
     "gulp-inline-css": "^3.1.0",
+    "gulp-inline-source": "^3.0.0",
     "gulp-minify-html": "*",
     "gulp-plumber": "*",
+    "gulp-smoosher": "0.0.9",
     "gulp-uglify": "*",
     "imagemin": "^5.2.2",
     "imagemin-jpegtran": "^5.0.2",
-    "imagemin-optipng": "^5.2.1"
+    "imagemin-optipng": "^5.2.1",
+    "inline-source": "^5.2.0",
+    "inline-source-cli": "^1.2.0"
   }
 }
