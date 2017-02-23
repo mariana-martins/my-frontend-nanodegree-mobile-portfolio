@@ -143,6 +143,7 @@ pizzaIngredients.crusts = [
 ];
 
 // Pulls adjective out of array using random number sent from generator
+// there were inside getAdj function.  I removed it from there to generate these arrays only once.
 var dark = ["dark","morbid", "scary", "spooky", "gothic", "deviant", "creepy", "sadistic", "black", "dangerous", "dejected", "haunted",
     "morose", "tragic", "shattered", "broken", "sad", "melancholy", "somber", "dark", "gloomy", "homicidal", "murderous", "shady", "misty",
     "dusky", "ghostly", "shadowy", "demented", "cursed", "insane", "possessed", "grotesque", "obsessed"];
@@ -208,6 +209,7 @@ function getAdj(x){
 }
 
 // Pulls noun out of array using random number sent from generator
+// there were inside getNoun function.  I removed it from there to generate these arrays only once.
 var animals = ["flamingo", "hedgehog", "owl", "elephant", "pussycat", "alligator", "dachsund", "poodle", "beagle", "crocodile", "kangaroo",
     "wallaby", "woodpecker", "eagle", "falcon", "canary", "parrot", "parakeet", "hamster", "gerbil", "squirrel", "rat", "dove", "toucan",
     "raccoon", "vulture", "peacock", "goldfish", "rook", "koala", "skunk", "goat", "rooster", "fox", "porcupine", "llama", "grasshopper",
@@ -299,6 +301,7 @@ function randomName() {
 }
 
 // These functions return a string of a random ingredient from each respective category of ingredients.
+// replaced Math.round calls to parseInt
 var selectRandomMeat = function() {
   var randomMeat = pizzaIngredients.meats[parseInt(Math.random() * pizzaIngredients.meats.length)];
   return randomMeat;
@@ -329,6 +332,7 @@ var ingredientItemizer = function(string) {
 };
 
 // Returns a string with random pizza ingredients nested inside <li> tags
+// Small change about concatenating strings here.
 var makeRandomPizza = function() {
   var pizza = "";
 
@@ -432,6 +436,9 @@ var resizePizzas = function(size) {
   }
 
   // Iterates through pizza elements on the page and changes their widths
+  // reimplemented it as now we only detect the new size and apply a class to the
+  // parent element of .randomPizzaContainer. Also, added CSS to properly resize
+  // these elements based on this new classes.
   function changePizzaSizes(size) {
     var pizzas = document.querySelectorAll(".randomPizzaContainer");
     var newPizzaSize = pizzaSizeSwitcher(size);
@@ -451,6 +458,7 @@ var resizePizzas = function(size) {
 window.performance.mark("mark_start_generating"); // collect timing data
 
 // This for-loop actually creates and appends all of the pizzas when the page loads
+// get pizzasDiv only once, avoiding getting it on document each iteration
 var pizzasDiv = document.getElementById("randomPizzas");
 for (var i = 2; i < 100; i++) {
   pizzasDiv.appendChild(pizzaElementGenerator(i));
@@ -484,6 +492,8 @@ function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
 
+  // changed code to pre-calculate new values related to the item positions.
+  // it improved performance as we calculate it less times.
   var items = document.querySelectorAll('.mover');
   var position = document.body.scrollTop / 1250;
   var base = [
@@ -515,11 +525,12 @@ document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
   var movingPizza = document.querySelector("#movingPizzas1");
-  for (var i = 0; i < 200; i++) {
+  // calculate how many pizzas are visible on the screen
+  var totalPizzas = Math.ceil(screen.height / s) * cols;
+  for (var i = 0; i < totalPizzas; i++) {
     var elem = document.createElement('img');
     elem.className = 'mover';
-    elem.src = "images/pizza.png" +
-        "";
+    elem.src = "images/pizza.png";
     elem.style.height = "100px";
     elem.style.width = "73.333px";
     elem.basicLeft = (i % cols) * s;
