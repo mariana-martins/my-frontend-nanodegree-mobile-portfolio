@@ -15,7 +15,13 @@ form { display: inline-block; }
 
 .mover { position: fixed; width: 256px; z-index: -1; }
 
-.randomPizzaContainer { float: left; display: flex; width:33.33%; height: 325px;}
+.randomPizzaContainer { float: left; display: flex; width:33.33%; height: 325px; }
+
+.small-pizzas > .randomPizzaContainer { width: 25%; }
+
+.medium-pizzas > .randomPizzaContainer { width: 33.33%; }
+
+.large-pizzas > .randomPizzaContainer { width: 50%; }
 
 .randomPizzaContainer:after { content: ""; display: table; clear:both; }
 

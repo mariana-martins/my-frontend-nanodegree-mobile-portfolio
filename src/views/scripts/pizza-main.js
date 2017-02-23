@@ -366,7 +366,8 @@ var pizzaElementGenerator = function(i) {
   pizzaDescriptionContainer = document.createElement("div");
 
   pizzaContainer.classList.add("randomPizzaContainer");
-  pizzaContainer.style.width = "33.33%";
+  // removed die new approach to resize pizza
+  //pizzaContainer.style.width = "33.33%";
   pizzaContainer.style.height = "325px";
   pizzaContainer.id = "pizza" + i;                // gives each pizza element a unique id
   pizzaImageContainer.style.width="35%";
@@ -415,41 +416,27 @@ var resizePizzas = function(size) {
 
   changeSliderLabel(size);
 
-   // Returns the size difference to change a pizza element from one size to another. Called by changePizzaSlices(size).
-  function determineDx (elem, size) {
-    var oldWidth = elem.offsetWidth;
-    var windowWidth = document.querySelector("#randomPizzas").offsetWidth;
-    var oldSize = oldWidth / windowWidth;
-
-    // Changes the slider value to a percent width
-    function sizeSwitcher (size) {
+  // Deleted determineDx function
+  // and added pizzaSizeSwitcher to define which size a pizza should have
+  function pizzaSizeSwitcher (size) {
       switch(size) {
-        case "1":
-          return 0.25;
-        case "2":
-          return 0.3333;
-        case "3":
-          return 0.5;
-        default:
-          console.log("bug in sizeSwitcher");
+          case "1":
+              return "small-pizzas";
+          case "2":
+              return "medium-pizzas";
+          case "3":
+              return "large-pizzas";
+          default:
+              console.log("bug in sizeSwitcher");
       }
-    }
-
-    var newSize = sizeSwitcher(size);
-    var dx = (newSize - oldSize) * windowWidth;
-
-    return dx;
   }
 
   // Iterates through pizza elements on the page and changes their widths
   function changePizzaSizes(size) {
     var pizzas = document.querySelectorAll(".randomPizzaContainer");
-    for (var i = 0; i < pizzas.length; i++) {
-      var pizza = pizzas[i];
-      var dx = determineDx(pizza, size);
-      var newwidth = (pizza.offsetWidth + dx) + 'px';
-      pizza.style.width = newwidth;
-    }
+    var newPizzaSize = pizzaSizeSwitcher(size);
+    var parent = document.getElementById('randomPizzas');
+    parent.className = "row " + newPizzaSize;
   }
 
   changePizzaSizes(size);
